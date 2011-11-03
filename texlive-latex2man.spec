@@ -1,3 +1,9 @@
+# revision 20844
+# category Package
+# catalog-ctan /support/latex2man
+# catalog-date 2010-12-23 07:51:16 +0100
+# catalog-license lppl
+# catalog-version 1.24
 Name:		texlive-latex2man
 Version:	1.24
 Release:	1
@@ -58,6 +64,7 @@ feature.
 %doc %{_texmfdistdir}/doc/support/latex2man/latex2man.trans
 %doc %{_texmfdistdir}/doc/support/latex2man/latex2man.txt
 %doc %{_infodir}/latex2man.info*
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -70,10 +77,12 @@ mkdir -p %{buildroot}%{_bindir}
 pushd %{buildroot}%{_bindir}
     # generate relative link manually because it appears to trigger some
     # weird bug that causes the link to be removed
-    %define dont_relink			1
+    %define dont_relink                        1
     ln -sf ../share/texmf-dist/scripts/latex2man/latex2man latex2man
 popd
 mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf texmf-dist %{buildroot}%{_datadir}
 mkdir -p %{buildroot}%{_infodir}
 mv %{buildroot}%{_texmfdir}/doc/info/*.info %{buildroot}%{_infodir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
