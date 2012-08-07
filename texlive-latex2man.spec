@@ -1,4 +1,4 @@
-# revision 20844
+# revision 26313
 # category Package
 # catalog-ctan /support/latex2man
 # catalog-date 2010-12-23 07:51:16 +0100
@@ -6,7 +6,7 @@
 # catalog-version 1.24
 Name:		texlive-latex2man
 Version:	1.24
-Release:	2
+Release:	3
 Summary:	Translate LaTeX-based manual pages into Unix man format
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/support/latex2man
