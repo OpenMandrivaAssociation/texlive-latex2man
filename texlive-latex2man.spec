@@ -1,12 +1,12 @@
-# revision 26313
+# revision 29725
 # category Package
 # catalog-ctan /support/latex2man
-# catalog-date 2010-12-23 07:51:16 +0100
+# catalog-date 2012-06-09 10:33:16 +0200
 # catalog-license lppl
 # catalog-version 1.24
 Name:		texlive-latex2man
 Version:	1.24
-Release:	3
+Release:	4
 Summary:	Translate LaTeX-based manual pages into Unix man format
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/support/latex2man
@@ -40,6 +40,7 @@ feature.
 %{_texmfdistdir}/scripts/latex2man/latex2man
 %{_texmfdistdir}/tex/latex/latex2man/latex2man.cfg
 %{_texmfdistdir}/tex/latex/latex2man/latex2man.sty
+%doc %{_infodir}/latex2man.info*
 %doc %{_texmfdistdir}/doc/support/latex2man/CHANGES
 %doc %{_texmfdistdir}/doc/support/latex2man/INSTALL
 %doc %{_texmfdistdir}/doc/support/latex2man/Makefile
@@ -54,7 +55,6 @@ feature.
 %doc %{_texmfdistdir}/doc/support/latex2man/latex2man.texi
 %doc %{_texmfdistdir}/doc/support/latex2man/latex2man.trans
 %doc %{_texmfdistdir}/doc/support/latex2man/latex2man.txt
-%doc %{_infodir}/latex2man.info*
 
 #-----------------------------------------------------------------------
 %prep
@@ -71,24 +71,6 @@ pushd %{buildroot}%{_bindir}
     ln -sf ../share/texmf-dist/scripts/latex2man/latex2man latex2man
 popd
 mkdir -p %{buildroot}%{_datadir}
-cp -fpar texmf texmf-dist %{buildroot}%{_datadir}
+cp -fpar texmf-dist %{buildroot}%{_datadir}
 mkdir -p %{buildroot}%{_infodir}
-mv %{buildroot}%{_texmfdir}/doc/info/*.info %{buildroot}%{_infodir}
-
-
-%changelog
-* Tue Aug 07 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.24-3
-+ Revision: 812358
-- Update to latest release.
-
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.24-2
-+ Revision: 753130
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 1.24-1
-+ Revision: 718809
-- texlive-latex2man
-- texlive-latex2man
-- texlive-latex2man
-- texlive-latex2man
-
+mv %{buildroot}%{_texmfdistdir}/doc/info/*.info %{buildroot}%{_infodir}
