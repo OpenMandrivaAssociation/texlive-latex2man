@@ -1,4 +1,4 @@
-# revision 29725
+# revision 31989
 # category Package
 # catalog-ctan /support/latex2man
 # catalog-date 2012-06-09 10:33:16 +0200
@@ -6,7 +6,7 @@
 # catalog-version 1.24
 Name:		texlive-latex2man
 Version:	1.24
-Release:	4
+Release:	5
 Summary:	Translate LaTeX-based manual pages into Unix man format
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/support/latex2man
@@ -41,13 +41,14 @@ feature.
 %{_texmfdistdir}/tex/latex/latex2man/latex2man.cfg
 %{_texmfdistdir}/tex/latex/latex2man/latex2man.sty
 %doc %{_infodir}/latex2man.info*
+%doc %{_mandir}/man1/latex2man.1*
+%doc %{_texmfdistdir}/doc/man/man1/latex2man.man1.pdf
 %doc %{_texmfdistdir}/doc/support/latex2man/CHANGES
 %doc %{_texmfdistdir}/doc/support/latex2man/INSTALL
 %doc %{_texmfdistdir}/doc/support/latex2man/Makefile
 %doc %{_texmfdistdir}/doc/support/latex2man/README
 %doc %{_texmfdistdir}/doc/support/latex2man/THIS-IS-VERSION-1.24
 %doc %{_texmfdistdir}/doc/support/latex2man/latex2man-CHANGES.html
-%doc %{_texmfdistdir}/doc/support/latex2man/latex2man.1
 %doc %{_texmfdistdir}/doc/support/latex2man/latex2man.css
 %doc %{_texmfdistdir}/doc/support/latex2man/latex2man.html
 %doc %{_texmfdistdir}/doc/support/latex2man/latex2man.pdf
@@ -72,5 +73,7 @@ pushd %{buildroot}%{_bindir}
 popd
 mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf-dist %{buildroot}%{_datadir}
+mkdir -p %{buildroot}%{_mandir}/man1
+mv %{buildroot}%{_texmfdistdir}/doc/man/man1/*.1 %{buildroot}%{_mandir}/man1
 mkdir -p %{buildroot}%{_infodir}
 mv %{buildroot}%{_texmfdistdir}/doc/info/*.info %{buildroot}%{_infodir}
