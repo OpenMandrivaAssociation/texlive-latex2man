@@ -1,6 +1,6 @@
 Name:		texlive-latex2man
 Version:	1.27
-Release:	1
+Release:	2
 Summary:	Translate LaTeX-based manual pages into Unix man format
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/support/latex2man
