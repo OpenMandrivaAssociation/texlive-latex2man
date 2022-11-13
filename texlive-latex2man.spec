@@ -1,12 +1,12 @@
 Name:		texlive-latex2man
-Version:	1.29
+Version:	64477
 Release:	1
 Summary:	Translate LaTeX-based manual pages into Unix man format
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/support/latex2man
 License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/latex2man.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/latex2man.doc.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/latex2man.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/latex2man.doc.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -21,12 +21,12 @@ parts of the text may be supressed using the conditional text
 feature.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -40,17 +40,17 @@ feature.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%autosetup -p1 -c -a1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_bindir}
 pushd %{buildroot}%{_bindir}
-    # generate relative link manually because it appears to trigger some
-    # weird bug that causes the link to be removed
-    %define dont_relink                        1
-    ln -sf ../share/texmf-dist/scripts/latex2man/latex2man latex2man
+# generate relative link manually because it appears to trigger some
+# weird bug that causes the link to be removed
+%define dont_relink                        1
+ln -sf ../share/texmf-dist/scripts/latex2man/latex2man latex2man
 popd
 mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf-dist %{buildroot}%{_datadir}
