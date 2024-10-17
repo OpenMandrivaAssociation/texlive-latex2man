@@ -3,7 +3,7 @@ Version:	64477
 Release:	2
 Summary:	Translate LaTeX-based manual pages into Unix man format
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/support/latex2man
+URL:		https://www.ctan.org/tex-archive/support/latex2man
 License:	LPPL
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/latex2man.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/latex2man.doc.r%{version}.tar.xz
