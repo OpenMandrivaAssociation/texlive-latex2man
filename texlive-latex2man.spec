@@ -1,5 +1,6 @@
 %global tl_name latex2man
 %global tl_revision 79618
+%global tl_bin_links latex2man:%{_texmfdistdir}/scripts/latex2man/latex2man
 
 Name:		texlive-%{tl_name}
 Epoch:		1
@@ -15,6 +16,8 @@ BuildArch:	noarch
 BuildSystem:	texlive
 Requires:	texlive(latex2man.bin)
 Provides:	texlive(%{tl_name}) = %{tl_revision}
+Provides:	texlive(%{tl_name}.bin) = %{tl_revision}
+Provides:	texlive-%{tl_name}.bin = %{EVRD}
 
 %description
 Latex2man is a tool to translate UNIX manual pages written with LaTeX
